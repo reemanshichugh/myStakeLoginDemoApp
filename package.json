@@ -1,0 +1,41 @@
+{
+  "name": "demoapp",
+  "version": "1.0.0",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "immutable": "^3.8.2",
+    "mysql2": "^1.6.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.4.3",
+    "pg-promise": "^8.4.6",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-import": "^1.5.3",
+    "react-redux": "^5.0.7",
+    "react-router": "^3.2.1",
+    "react-router-dom": "^4.3.1",
+    "reactstrap": "^6.4.0",
+    "redis": "^2.8.0",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^3.0.1",
+    "sequelize": "^4.38.1",
+    "yarn": "^1.9.4"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.1",
+    "webpack": "^4.19.0"
+  },
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

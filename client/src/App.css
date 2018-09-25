@@ -1,0 +1,82 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  /* animation: App-logo-spin infinite 20s linear; */
+  height: 80px;
+}
+
+.App-header {
+  /* background-color: #222; */
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+.loginDiv{
+  width: 800px;
+  margin: auto;
+  text-align: center;
+  margin-top: 30px;
+}
+.App-title {
+  font-size: 1.5em;
+  color: black;
+  padding: 15px;
+}
+
+.App-intro {
+  font-size: large;
+}
+.fname{
+margin-left: 20px;
+}
+.signUpDiv {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  width:30em;
+  height:42em;
+  margin-top: -17em; /*set to a negative number 1/2 of your height*/
+  margin-left: -15em; /*set to a negative number 1/2 of your width*/
+  border: 1px solid #ccc;
+  background-color: #f3f3f3;
+}
+.container{
+  padding: 20px;
+}
+.fNameInput{
+  margin-left: 60px;
+}
+.pTag{
+  text-align: center;
+}
+
+.headerOfSignUp{
+  text-align: center;
+
+}
+.inputField {
+  width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    cursor: text;
+    display: inline-block;
+}
+.submitOrCancel {
+  width:50%;
+  float:left;
+}
+.logOutButton{
+  border-radius: 20px;
+  float: right;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
