@@ -6,7 +6,11 @@
   /* animation: App-logo-spin infinite 20s linear; */
   height: 80px;
 }
-
+.searchUser{
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
 .App-header {
   /* background-color: #222; */
   height: 150px;
@@ -53,6 +57,7 @@ margin-left: 20px;
 }
 
 .headerOfSignUp{
+  margin-top: 20px;
   text-align: center;
 
 }

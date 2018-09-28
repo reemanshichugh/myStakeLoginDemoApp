@@ -187,4 +187,30 @@ app.post('/insertDetails', function (req, res) {
   // res.end();
 })
 
+app.post('/user/search', function (req, res, next) {
+  console.log("Got a POST request for the searchpage", req.body);
+
+  let id = req.body.id;
+
+  client.hgetall(id, function (err, obj) {
+    if (!obj) {
+      console.log('User does not exist');
+      res.statusCode = 202;
+      res.json({
+        status: 202,
+        message: 'User does not exist',
+      });
+      res.end();
+    } else {
+      res.statusCode = 200;
+      console.log('User exists');
+      res.json({
+        status: 200,
+        message: 'User Exists',
+      });
+      res.end();
+    }
+  });
+})
+
 app.listen(port, () => console.log(`Listening on port ${port}`));

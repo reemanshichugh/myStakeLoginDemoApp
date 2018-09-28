@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import {Router, browserHistory} from 'react-router';
 // import SignUpPage from './SignUp';
-// import MystakeFrontPage from './FrontPage/frontPage';
+import FrontPage from './components/frontPage';
 // import App from './App';
 import SignUpPage from './components/signupForm';
 import LoginPage from './components/loginPage';
@@ -15,6 +15,7 @@ export default class Routes extends React.Component {
                     <Route path="/" component={SignUpPage} />
                     <Route path="/MystakeFrontPage" component={Dashboard} />
                     <Route path="/loginPage" component={LoginPage} />
+                    <Route path = "/user/search" component = {FrontPage}></Route>
                 </Router>
         );
     }

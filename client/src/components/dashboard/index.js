@@ -12,10 +12,16 @@ class Dashboard extends Component {
       personName: '',
       age: '',
       responseAge: '',
+      showTable: false,
     };
     this.myFunction = this.myFunction.bind(this);
     this.onUpdate = this.onUpdate.bind(this);
     this.logOut = this.logOut.bind(this);
+    this.showTableFunc = this.showTableFunc.bind(this);
+  }
+
+  showTableFunc(){
+    this.setState({ showTable: !this.state.showTable });
   }
 
   logOut() {
@@ -118,6 +124,10 @@ class Dashboard extends Component {
   render() {
     const response = this.state.response;
     const allUsers = this.getAllUsers();
+    let buttonName = "Show Table";
+    if(this.state.showTable){
+      buttonName = "Hide Table";
+    }
     return (
       <div className="App">
         <header className="App-header">
@@ -156,8 +166,13 @@ class Dashboard extends Component {
         <button className="btn btn-primary my-3" onClick={(e) => this.myFunction(e)} >
           Save
             </button>
+            <button className="btn btn-secondary ml-3" onClick={(e) => this.showTableFunc(e)} >
+          {buttonName}
+            </button>
         {/* <table width='600' cellspacing='0' cellpadding='0' border-spacing='0'> */}
-        <div style={{ width: "100%", maxWidth: "500px", margin: "auto" }} >
+        {
+          this.state.showTable && 
+          <div style={{ width: "100%", maxWidth: "500px", margin: "auto" }} >
           <table className="table table-bordered table-striped">
             <thead>
               <tr>
@@ -170,6 +185,8 @@ class Dashboard extends Component {
             </tbody>
           </table>
         </div>
+        }
+        
       </div>
     );
   }

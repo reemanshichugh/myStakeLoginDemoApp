@@ -6,8 +6,8 @@ import { Button } from 'reactstrap';
 import { ValidationUserInput } from '../../Validations/validations'
 import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { createSelector } from 'reselect';
+// import { bindActionCreators } from 'redux';
+// import { createSelector } from 'reselect';
 import { signupAction } from '../../actions/signupAction'
 class SignUpPage extends Component {
 
