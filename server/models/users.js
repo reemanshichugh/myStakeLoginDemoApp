@@ -3,7 +3,7 @@ const sequelize = require('sequelize');
 // Including db.js which contains the database configuration
 const db = require('../config/db');
 // Creating Table with name users
-module.exports = db.define('users', {
+module.exports = db.define('customers', {
   id: {
     allowNull: false,
     autoIncrement: true,
