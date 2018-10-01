@@ -124,6 +124,7 @@ app.post('/signUpDetails', function(req,res){
     if (userFromRepo) {
       console.log("GostatusCode", req.statusCode);
       res.statusCode = 202;
+      client.set('isLoggedIn', true);
       res.json({
         status: 202,
         message: 'User Entered Successfully',

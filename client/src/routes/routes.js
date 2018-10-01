@@ -18,8 +18,8 @@ export default class Routes extends React.Component {
                     <Route exact path="/" component={SignUpPage} />
                     <Route path="/MystakeFrontPage" component={Dashboard} />
                     <Route path="/loginPage" component={LoginPage} />
-                    <Route path="/user/search" component={FrontPage} />
-                    <Route component={FrontPage} />
+                    {/* <Route path="/user/search" component={FrontPage} />
+                    <Route component={FrontPage} /> */}
                 </Switch>
             </BrowserRouter>
         );

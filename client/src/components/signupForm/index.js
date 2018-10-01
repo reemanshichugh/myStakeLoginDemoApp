@@ -5,7 +5,9 @@ import logo from '../../logo-blue.svg';
 import { Button } from 'reactstrap';
 import { ValidationUserInput } from '../../Validations/validations'
 import { browserHistory } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 // import { bindActionCreators } from 'redux';
 // import { createSelector } from 'reselect';
 import { signupAction } from '../../actions/signupAction'
@@ -30,6 +32,7 @@ class SignUpPage extends Component {
     }
 
     OnSubmit() {
+        const SELF = this;
         if (!ValidationUserInput(this.state, 'signup')) {
             return false;
         } else {
@@ -51,7 +54,7 @@ class SignUpPage extends Component {
                 .then((res) => res.json())
                 .then((res) => {
                     console.log('!!!', res);
-                    browserHistory.push('/MystakeFrontPage');
+                    SELF.props.history.push('/MystakeFrontPage');
                 })
                 .catch((error) => {
                     console.log('@@', error);
@@ -145,7 +148,7 @@ const mapDispatchToProps = dispatch => ({
 // const mapActionsToProps = {
 //     simpleAction: simpleAction
 // }
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);
+export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(SignUpPage);
 
 // const mapStateToProps = createSelector();
 
