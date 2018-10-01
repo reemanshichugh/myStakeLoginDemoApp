@@ -42,15 +42,15 @@ client.on('error', function (err) {
   console.log('Something went wrong ' + err);
 });
 
-client.set('mytestkey', 'my test value', redis.print);
-client.get('mytestkey', function (error, result) {
-    if (error) {
-        console.log(error);
-        throw error;
-    }
-    console.log('GET result ->' + result);
-});
-// console.log('Connected to PostgreSQL database');
+// client.set('mytestkey', 'my test value', redis.print);
+// client.get('mytestkey', function (error, result) {
+//     if (error) {
+//         console.log(error);
+//         throw error;
+//     }
+//     console.log('GET result ->' + result);
+// });
+console.log('Connected to PostgreSQL database');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // var pgp = require('pg-promise')
@@ -95,14 +95,14 @@ app.post('/insertDetails', function (req, res) {
         status: 202,
         message: 'User Entered Successfully',
       });
-      client.set('personName', req.body.personName, redis.print);
-      client.get('personName', function (error, result) {
-        if (error) {
-            console.log(error);
-            throw error;
-        }
-        console.log('GET personName ->' + result);
-    });
+    //   client.set('personName', req.body.personName, redis.print);
+    //   client.get('personName', function (error, result) {
+    //     if (error) {
+    //         console.log(error);
+    //         throw error;
+    //     }
+    //     console.log('GET personName ->' + result);
+    // });
       res.end();
     }
   }).catch((error) => {
@@ -135,6 +135,30 @@ app.post('/signUpDetails', function(req,res){
   })
 })
 
+app.post('/logout', function(req,res){
+  client.del('isLoggedIn');
+  res.json({
+    status: 202,
+    message: 'Logged out successfully',
+  });
+})
+
+app.get('/checkUserIsLoggedIn', function(req,res){
+  const isLoggedIn = client.get('isLoggedIn', function (error, result) {
+        if (error) {
+            console.log(error);
+            throw error;
+        }
+        console.log('GET isLoggedIn ->' + result);
+        res.json({
+          status: 202,
+          isLoggedIn: result,
+          message: 'Logged out successfully',
+        });
+    });
+})
+
+
 app.post('/checkUserDetails', function(req, res){
   console.log("Got a POST request for checkUserDetails", req.body);
   User.findOne({
@@ -145,6 +169,7 @@ app.post('/checkUserDetails', function(req, res){
   }).then((userFromRepo) => {
     if (userFromRepo) {
       res.statusCode = 202;
+      client.set('isLoggedIn', true);
       res.json({
         status: 202,
         message: 'User Exists',

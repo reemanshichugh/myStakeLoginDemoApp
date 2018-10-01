@@ -18,48 +18,48 @@ const Dashboard = withRouter(class Dashboard extends Component {
       age: '',
       responseAge: '',
     };
-    // this.logOut = this.logOut.bind(this);
+    this.logOut = this.logOut.bind(this);
   }
 
-//   componentWillMount() {
-//     fetch(
-//       `http://localhost:3000/checkUserIsLoggedIn`,
-//       {
-//         method: 'GET',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       })
-//       .then((res) => res.json())
-//       .then((res) => {
-//         console.log('!!!isLoggedInisLoggedIn', res);
-//         if (res && res.isLoggedIn === null) {
-//           this.props.history.push('/');
-//         }
-//       })
-//       .catch((error) => {
-//         console.log('@@errorerror', error);
-//       });
-//   }
+  componentWillMount() {
+    fetch(
+      `http://localhost:3000/checkUserIsLoggedIn`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log('!!!isLoggedInisLoggedIn', res);
+        if (res && res.isLoggedIn === null) {
+          this.props.history.push('/');
+        }
+      })
+      .catch((error) => {
+        console.log('@@errorerror', error);
+      });
+  }
 
-//   logOut() {
-//     fetch(
-//       `http://localhost:3000/logout`,
-//       {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       })
-//       .then((res) => res.json())
-//       .then((res) => {
-//         console.log('!!!', res);
-//           this.props.history.push('/');
-//       })
-//       .catch((error) => {
-//         console.log('@@errorerror', error);
-//       });
-//   }
+  logOut() {
+    fetch(
+      `http://localhost:3000/logout`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log('!!!', res);
+          this.props.history.push('/');
+      })
+      .catch((error) => {
+        console.log('@@errorerror', error);
+      });
+  }
 
   render() {
     const response = this.state.response;
