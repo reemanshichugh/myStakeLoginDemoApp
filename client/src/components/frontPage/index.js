@@ -15,7 +15,6 @@ export default class FrontPage extends Component {
     }
 
     onFormSubmit() {
-        debugger;
         const payload = {
             id: this.state.id,
         };

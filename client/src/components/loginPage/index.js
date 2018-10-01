@@ -5,7 +5,9 @@ import logo from '../../logo-blue.svg';
 import { Button } from 'reactstrap';
 import { ValidationUserInput } from '../../Validations/validations'
 import { browserHistory } from 'react-router';
+import { BrowserRouter, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 // import { bindActionCreators } from 'redux';
 // import { createSelector } from 'reselect';
 import { signupAction } from '../../actions/signupAction'
@@ -30,6 +32,7 @@ class LoginPage extends Component {
     }
 
     OnSubmit() {
+        const SELF = this;
         if (!ValidationUserInput(this.state,'login')) {
             return false;
         } else {
@@ -52,7 +55,7 @@ class LoginPage extends Component {
                 .then((res) => {
                     console.log('!!!', res);
                     if(res && res.message === 'User Exists'){
-                        browserHistory.push('/MystakeFrontPage');
+                        SELF.props.history.push('/MystakeFrontPage');
 
                     } else if(res && res.message === 'No User'){
                         alert('User with this email and password does not exists', 'danger');
@@ -75,6 +78,7 @@ class LoginPage extends Component {
     }
 
     render() {
+        console.log(this.props,'props')
         return (
             <div>
                 <header className="headerOfSignUp">
@@ -129,4 +133,4 @@ const mapDispatchToProps = dispatch => ({
     signupAction: (data) => dispatch(signupAction(data))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(LoginPage);

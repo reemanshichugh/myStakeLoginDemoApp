@@ -3,9 +3,14 @@ import logo from '../../logo-blue.svg';
 // import logOut  from './/logout-button-blue-hi.png';
 import '../../App.css';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import Navbar from '../../commonComponents/navbar';
-import { browserHistory } from 'react-router';
-class Dashboard extends Component {
+import { browserHistory, withRouter } from 'react-router';
+import AddTodoItem from '../addTodoItem';
+import AboutUs from '../aboutUs';
+import Header from '../../commonComponents/header'
+const Dashboard = class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,33 +22,59 @@ class Dashboard extends Component {
     this.logOut = this.logOut.bind(this);
   }
 
+  componentWillMount() {
+    fetch(
+      `http://localhost:3000/checkUserIsLoggedIn`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log('!!!isLoggedInisLoggedIn', res);
+        if (res && res.isLoggedIn === null) {
+          this.props.history.push('/');
+        }
+      })
+      .catch((error) => {
+        console.log('@@errorerror', error);
+      });
+  }
+
   logOut() {
-    browserHistory.push('/');
+    fetch(
+      `http://localhost:3000/logout`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log('!!!', res);
+          this.props.history.push('/');
+      })
+      .catch((error) => {
+        console.log('@@errorerror', error);
+      });
   }
 
   render() {
     const response = this.state.response;
-    return (
-      <div className="App">
-        <Navbar />
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <button className="logOutButton" onClick={(e) => this.logOut(e)}>
-            Log Out
-         </button>
-          <h1 className="App-title">Welcome to myStake Tech Stack</h1>
 
-        </header>
-        {this.props.children}
+    return (
+      <div>
+        <Header />
+        <Switch>
+          <Route path="/MystakeFrontPage/addTodoItem" component={AddTodoItem} />
+          <Route path="/MystakeFrontPage/about" component={AboutUs} />
+        </Switch>
       </div>
     );
   }
 }
 
-
-
-const mapStateToProps = state => ({
-  credentials: state.signupReducer.credentials,
-})
-
-export default connect(mapStateToProps)(Dashboard);
+export default Dashboard;

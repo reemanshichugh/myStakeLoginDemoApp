@@ -2,7 +2,8 @@ export default (state = {}, action) => {
     switch (action.type) {
         
      case 'SIMPLE_ACTION':
-        const credentials = action.payload
+        const credentials = action.payload;
+        console.log(credentials, 'credentialscredentialscredentials')
       return {
         ...state, 
         credentials,

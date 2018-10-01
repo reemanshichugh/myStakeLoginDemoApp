@@ -72,9 +72,9 @@ class AddTodoItem extends Component {
       })
       .then((res) => res.json())
       .then((res) => {
-        this.setState({ response: res.result.personName })
-        this.setState({ responseAge: res.result.age })
         console.log('!!!', res);
+        // this.setState({ response: res.result.personName })
+        // this.setState({ responseAge: res.result.age })
       })
       .catch((error) => {
         console.log('@@', error);
