@@ -1,0 +1,15 @@
+.sideNavbar{
+width:200px;
+background: aliceblue;
+height: 1000px;
+}
+.sideNavbar nav{}
+.sideNavbar nav .navbar-nav {}
+.sideNavbar nav .navbar-nav li{}
+.sideNavbar nav .navbar-nav li .nav-link{}
+
+main
+{
+margin: auto;
+padding-left: 200px;
+}
