@@ -24,18 +24,29 @@ class Dashboard extends Component {
   render() {
     const response = this.state.response;
     return (
-      <div className="App">
-        <Navbar />
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <button className="logOutButton" onClick={(e) => this.logOut(e)}>
-            Log Out
+      <section>
+        <div >
+          <div className="App">
+            <header className="App-header">
+              <h3 class="userName">dfggbvfdcvg</h3>
+              <img src={logo} className="App-logo" alt="logo" />
+              <button className="logOutButton" onClick={(e) => this.logOut(e)}>
+                Log Out
          </button>
-          <h1 className="App-title">Welcome to myStake Tech Stack</h1>
+              <h1 className="App-title">Welcome to myStake Tech Stack</h1>
+              <Navbar />
+            </header>
+            <main>
+              <section>
+                <div className="container">
 
-        </header>
-        {this.props.children}
-      </div>
+                </div>
+              </section>
+            </main>
+            {this.props.children}
+          </div>
+        </div>
+      </section>
     );
   }
 }

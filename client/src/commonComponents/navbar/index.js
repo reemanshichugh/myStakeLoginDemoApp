@@ -3,6 +3,7 @@ import '../../App.css';
 import { Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import { browserHistory, Link } from 'react-router';
+import '../../styles/components/navigationBar.css'
 class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -12,18 +13,26 @@ class Navbar extends Component {
   }
 
   goToPage() {
-      browserHistory.push('')
+    browserHistory.push('')
   }
 
   render() {
     return (
-        <div className="navbar">
-            <ul>
-                <li><Link to={'/MystakeFrontPage'}>Home</Link></li>
-                <li><Link to={'/addTodoItem'}>Add Todo Item</Link></li>
-                <li><Link to={'/about'}>About Us</Link></li>
-            </ul>
-        </div>
+      <div className="sideNavbar">
+        <nav>
+          <ul class="navbar-nav">
+            <li>
+              <a class="nav-link" href="/MyStakeFrontPage">Home</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/addTodoItem">Add todo item</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/about">About us</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     );
   }
 }

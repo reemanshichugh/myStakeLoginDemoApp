@@ -16,7 +16,7 @@ class AboutUs extends Component {
   render() {
     return (
       <div className="App">
-          <h1 className="App-title">AboutUs</h1>
+        {/* <h1 className="App-title">AboutUs</h1> */}
       </div>
     );
   }

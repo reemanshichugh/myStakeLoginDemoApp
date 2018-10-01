@@ -124,7 +124,7 @@ class AddTodoItem extends Component {
       buttonName = "Hide Table";
     }
     return (
-      <div className="App">
+      <div className="userTable">
           <div className="pt-5 pb-3" style={{ width: "100%", maxWidth: "400px", margin: "auto" }} >
           <div className="row">
             <div className="col  text-left"><label>Enter person's name</label></div>
@@ -157,11 +157,10 @@ class AddTodoItem extends Component {
             <button className="btn btn-secondary ml-3" onClick={(e) => this.showTableFunc(e)} >
           {buttonName}
             </button>
-         <table width='600' cellspacing='0' cellpadding='0' border-spacing='0'> 
         {
           this.state.showTable && 
           <div style={{ width: "100%", maxWidth: "500px", margin: "auto" }} >
-          <table className="table table-bordered table-striped">
+          <table className="table table-bordered table-striped ">
             <thead>
               <tr>
                 <th>Person Name</th>
@@ -174,7 +173,7 @@ class AddTodoItem extends Component {
           </table>
         </div>
         }
-        </table>
+
       </div>
     );
   }

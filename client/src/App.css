@@ -5,10 +5,14 @@
 .navbar {
   float: left;
 }
-
+.tablecenter{
+  margin: auto;
+  width:50;
+}
 .App-logo {
   /* animation: App-logo-spin infinite 20s linear; */
   height: 80px;
+  margin-top: -28px;
 }
 .searchUser{
   margin: auto;
@@ -31,6 +35,7 @@
   font-size: 1.5em;
   color: black;
   padding: 15px;
+
 }
 
 .App-intro {
@@ -81,6 +86,7 @@ margin-left: 20px;
 .logOutButton{
   border-radius: 20px;
   float: right;
+  margin-top: -28px;
 }
 
 @keyframes App-logo-spin {
@@ -88,4 +94,12 @@ margin-left: 20px;
   to { transform: rotate(360deg); }
 }
 
+.userTable{
+  margin-top: 30px;
+}
+.userName{
+color: black;
+text-align:left;
+
+}
 

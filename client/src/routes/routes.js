@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import {Router, browserHistory} from 'react-router';
+import { Router, browserHistory } from 'react-router';
 // import SignUpPage from './SignUp';
 import FrontPage from '../components/frontPage';
 // import App from './App';
@@ -13,15 +13,15 @@ export default class Routes extends React.Component {
 
     render() {
         return (
-                <Router history = {browserHistory}>         
-                    <Route path="/" component={SignUpPage} />
-                    <Route path="/MystakeFrontPage" component={Dashboard}>
-                        <Route path="/addTodoItem" component={AddTodoItem} />
-                        <Route path="/about" component={AboutUs} />
-                    </Route>
-                    <Route path="/loginPage" component={LoginPage} />
-                    <Route path = "/user/search" component = {FrontPage} />
-                </Router>
+            <Router history={browserHistory}>
+                <Route path="/" component={SignUpPage} />
+                <Route path="/MystakeFrontPage" component={Dashboard}>
+                    <Route path="/addTodoItem" component={AddTodoItem} />
+                    <Route path="/about" component={AboutUs} />
+                </Route>
+                <Route path="/loginPage" component={LoginPage} />
+                <Route path="/user/search" component={FrontPage} />
+            </Router>
         );
     }
 }
